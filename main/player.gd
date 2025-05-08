@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # Define constants
 const SPEED = 100.0
-const JUMP_VELOCITY = -350.0
+const JUMP_VELOCITY = -300.0
 
 # Var to store start position
 var _start_position: Vector2 = Vector2.ZERO
@@ -43,5 +43,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animation.play("idle")
+		
+	# If the user dies
+	if global_position.y > 220:
+		# Reset to start position
+		global_position = _start_position
+		velocity = Vector2.ZERO
 
 	move_and_slide()
