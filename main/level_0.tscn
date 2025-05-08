@@ -1,10 +1,9 @@
-[gd_scene load_steps=48 format=4 uid="uid://b4djmorhqfyhi"]
+[gd_scene load_steps=47 format=4 uid="uid://b4djmorhqfyhi"]
 
 [ext_resource type="Texture2D" uid="uid://hk68odt2moh3" path="res://assets/sprites/world_tileset.png" id="1_ma5f1"]
 [ext_resource type="Script" path="res://level_0.gd" id="1_oxe47"]
 [ext_resource type="Script" path="res://player.gd" id="2_jsoai"]
 [ext_resource type="Texture2D" uid="uid://bu6qy7nu56slh" path="res://assets/sprites/knight.png" id="3_y7qax"]
-[ext_resource type="Script" path="res://collision.gd" id="5_q3us1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rk8pk"]
 texture = ExtResource("1_ma5f1")
@@ -613,7 +612,7 @@ tile_map_data = PackedByteArray("AAAAAAkAAAAAAA8AAAAAAAoAAAAAAA8AAAABAAoAAAAAAA8
 tile_set = SubResource("TileSet_wiroq")
 
 [node name="level" type="TileMapLayer" parent="background"]
-tile_map_data = PackedByteArray("AAABAAgAAAAGAAAAAAABAAkAAAAIAAEAAAACAAgAAAAGAAAAAAACAAkAAAAGAAEAAAADAAgAAAAHAAEAAAADAAkAAAAIAAEAAAAFAAYAAAAGAAAAAAAFAAcAAAAGAAEAAAAGAAYAAAAHAAEAAAAGAAcAAAAIAAEAAAAHAAYAAAAGAAAAAAAHAAcAAAAIAAAAAAAJAAQAAAAGAAAAAAAJAAUAAAAIAAAAAAAKAAQAAAAGAAAAAAAKAAUAAAAIAAEAAAALAAQAAAAHAAEAAAALAAUAAAAGAAEAAAANAAIAAAAGAAAAAAANAAMAAAAIAAAAAAANAAQAAAAGAAEAAAANAAUAAAAIAAEAAAANAAYAAAAGAAEAAAANAAgAAAAGAAAAAAAOAAgAAAAHAAEAAAAPAAgAAAAGAAAAAAAPAAYAAAAGAAAAAAAQAAYAAAAGAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAAgAAAAGAAAAAAABAAkAAAAIAAEAAAACAAgAAAAGAAAAAAACAAkAAAAGAAEAAAADAAgAAAAHAAEAAAADAAkAAAAIAAEAAAAFAAYAAAAGAAAAAAAFAAcAAAAGAAEAAAAGAAYAAAAHAAEAAAAGAAcAAAAIAAEAAAAHAAYAAAAGAAAAAAAHAAcAAAAIAAAAAAAJAAQAAAAGAAAAAAAJAAUAAAAIAAAAAAAKAAQAAAAGAAAAAAAKAAUAAAAIAAEAAAALAAQAAAAHAAEAAAALAAUAAAAGAAEAAAANAAIAAAAGAAAAAAANAAMAAAAIAAAAAAANAAQAAAAGAAEAAAANAAUAAAAIAAEAAAANAAgAAAAGAAAAAAAOAAgAAAAHAAEAAAAPAAgAAAAGAAAAAAAPAAYAAAAGAAAAAAAQAAYAAAAGAAAAAAA=")
 tile_set = SubResource("TileSet_4axt6")
 
 [node name="player" type="CharacterBody2D" parent="."]
@@ -621,11 +620,8 @@ script = ExtResource("2_jsoai")
 
 [node name="animation" type="AnimatedSprite2D" parent="player"]
 sprite_frames = SubResource("SpriteFrames_sad7l")
-animation = &"idle"
-frame = 2
-frame_progress = 0.973397
+animation = &"death"
 
 [node name="collision" type="CollisionShape2D" parent="player"]
 position = Vector2(-1, 3)
 shape = SubResource("RectangleShape2D_q8wg0")
-script = ExtResource("5_q3us1")

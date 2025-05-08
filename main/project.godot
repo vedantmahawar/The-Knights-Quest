@@ -21,3 +21,7 @@ window/size/mode=2
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/stretch/scale=4.0
+
+[rendering]
+
+2d/snap/snap_2d_vertices_to_pixel=true
