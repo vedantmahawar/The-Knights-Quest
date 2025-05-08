@@ -1,7 +1,7 @@
 extends Node2D
 
-var start_x = 200
-var start_y = 200
+var start_x = 40
+var start_y = 27
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
