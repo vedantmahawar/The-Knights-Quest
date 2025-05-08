@@ -9,7 +9,6 @@ func _ready() -> void:
 	var start_position = Vector2(start_x, start_y) 
 	player_node.set_start_position(start_position)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

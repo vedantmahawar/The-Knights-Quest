@@ -23,7 +23,7 @@ func _ready() -> void:
 	# If no start position was set externally, default to current position
 	if _start_position == Vector2.ZERO:
 		set_start_position(global_position) 
-	animation.scale = Vector2(0.9, 0.9)
+	# animation.scale = Vector2(0.9, 0.9)
 
 func _physics_process(delta: float) -> void:
 	# Get gravity

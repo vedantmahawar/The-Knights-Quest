@@ -621,9 +621,9 @@ script = ExtResource("2_jsoai")
 
 [node name="animation" type="AnimatedSprite2D" parent="player"]
 sprite_frames = SubResource("SpriteFrames_sad7l")
-animation = &"run"
-frame = 12
-frame_progress = 0.650996
+animation = &"idle"
+frame = 2
+frame_progress = 0.973397
 
 [node name="collision" type="CollisionShape2D" parent="player"]
 position = Vector2(-1, 3)
