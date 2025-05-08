@@ -23,6 +23,7 @@ func _ready() -> void:
 	# If no start position was set externally, default to current position
 	if _start_position == Vector2.ZERO:
 		set_start_position(global_position) 
+	animation.scale = Vector2(0.9, 0.9)
 
 func _physics_process(delta: float) -> void:
 	# Get gravity
@@ -33,18 +34,15 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Handle movement input
+	# Handle movement and animation in one block
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
+
+	if direction != 0:
 		velocity.x = direction * SPEED
+		animation.play("run")
+		animation.flip_h = direction < 0  # Flip the sprite if moving left
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	# Handle animation
-	var direction2 := Input.get_axis("ui_left", "ui_right")
-	if direction2 != 0:
-		animation.play("run")
-	else:
 		animation.play("idle")
 
 	move_and_slide()
