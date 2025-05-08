@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://b4djmorhqfyhi"]
+[gd_scene load_steps=8 format=4 uid="uid://b4djmorhqfyhi"]
 
 [ext_resource type="Texture2D" uid="uid://hk68odt2moh3" path="res://assets/sprites/world_tileset.png" id="1_ma5f1"]
 [ext_resource type="Script" path="res://level_0.gd" id="1_oxe47"]
@@ -319,6 +319,9 @@ texture = ExtResource("1_ma5f1")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_pj6vc")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a58en"]
+size = Vector2(16, 16)
+
 [node name="level_0" type="Node2D"]
 script = ExtResource("1_oxe47")
 
@@ -327,5 +330,13 @@ tile_map_data = PackedByteArray("AAAAAAkAAAAAAA8AAAAAAAoAAAAAAA8AAAABAAoAAAAAAA8
 tile_set = SubResource("TileSet_wiroq")
 
 [node name="level" type="TileMapLayer" parent="background"]
-tile_map_data = PackedByteArray("AAABAAgAAAAGAAAAAAABAAkAAAAIAAEAAAACAAgAAAAGAAAAAAACAAkAAAAGAAEAAAADAAgAAAAHAAEAAAADAAkAAAAIAAEAAAAFAAYAAAAGAAAAAAAFAAcAAAAGAAEAAAAGAAYAAAAHAAEAAAAGAAcAAAAIAAEAAAAHAAYAAAAGAAAAAAAHAAcAAAAIAAAAAAAJAAQAAAAGAAAAAAAJAAUAAAAIAAAAAAAKAAQAAAAGAAAAAAAKAAUAAAAIAAEAAAALAAQAAAAHAAEAAAALAAUAAAAGAAEAAAANAAIAAAAGAAAAAAANAAMAAAAIAAAAAAANAAQAAAAGAAEAAAANAAUAAAAIAAEAAAANAAgAAAAGAAAAAAAOAAgAAAAHAAEAAAAPAAgAAAAGAAAAAAAPAAUAAAAGAAEAAAAQAAUAAAAGAAAAAAAPAAIAAAAGAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAAgAAAAGAAAAAAABAAkAAAAIAAEAAAACAAgAAAAGAAAAAAACAAkAAAAGAAEAAAADAAgAAAAHAAEAAAADAAkAAAAIAAEAAAAFAAYAAAAGAAAAAAAFAAcAAAAGAAEAAAAGAAYAAAAHAAEAAAAGAAcAAAAIAAEAAAAHAAYAAAAGAAAAAAAHAAcAAAAIAAAAAAAJAAQAAAAGAAAAAAAJAAUAAAAIAAAAAAAKAAQAAAAGAAAAAAAKAAUAAAAIAAEAAAALAAQAAAAHAAEAAAALAAUAAAAGAAEAAAANAAIAAAAGAAAAAAANAAMAAAAIAAAAAAANAAQAAAAGAAEAAAANAAUAAAAIAAEAAAANAAgAAAAGAAAAAAAOAAgAAAAHAAEAAAAPAAgAAAAGAAAAAAAPAAUAAAAGAAEAAAAQAAUAAAAGAAAAAAAPAAIAAAAGAAAAAAAQAAQAAAAAAAgAAAA=")
 tile_set = SubResource("TileSet_4axt6")
+
+[node name="level_exit" type="Area2D" parent="."]
+position = Vector2(264, 73)
+
+[node name="collision" type="CollisionShape2D" parent="level_exit"]
+shape = SubResource("RectangleShape2D_a58en")
+
+[connection signal="body_entered" from="level_exit" to="." method="_on_level_exit_body_entered"]
