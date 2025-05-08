@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
 # Define constants
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 100.0
+const JUMP_VELOCITY = -300.0
 
 # Var to store start position
 var _start_position: Vector2 = Vector2.ZERO
+
+# Reference to animation
+@onready var animation = $animation
 
 # Start position setter function
 func set_start_position(pos: Vector2) -> void:
@@ -25,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	# Get gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+		
 	# Handle jump
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -36,5 +39,12 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	# Handle animation
+	var direction2 := Input.get_axis("ui_left", "ui_right")
+	if direction2 != 0:
+		animation.play("run")
+	else:
+		animation.play("idle")
 
 	move_and_slide()
