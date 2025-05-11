@@ -1,2 +1,2 @@
 ### The-Knights-Quest
-Platformer game for Advanced Programming: Game Development Spring 2025.
+Platformer game for the Advanced Programming: Game Development Spring course at Eastside Prepratory School.
