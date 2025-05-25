@@ -22,6 +22,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+
 #func _on_level_exit_body_entered(body: Node2D) -> void:
 	#await get_tree().create_timer(1.0).timeout
 	#get_tree().change_scene_to_file("res://level_1.tscn")
+
+
+func _on_level_exit_body_entered(body: Node2D) -> void:
+	await get_tree().create_timer(1.0).timeout
+	get_tree().change_scene_to_file("res://level_1.tscn")

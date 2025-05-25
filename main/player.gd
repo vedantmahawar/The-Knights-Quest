@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 # Define constants
-const SPEED = 100.0
-const JUMP_VELOCITY = -300.0
+const SPEED = 80.0
+const JUMP_VELOCITY = -250.0
 
 # Var to store start position
 var _start_position: Vector2 = Vector2.ZERO
@@ -27,7 +27,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	# Get gravity
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta * 0.5
 		
 	# Handle jump
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
