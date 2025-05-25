@@ -6,6 +6,18 @@ const JUMP_VELOCITY = -300
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+var current_checkpoint: Vector2 = Vector2.ZERO
+
+func set_checkpoint(pos: Vector2):
+	current_checkpoint = pos
+
+func respawn():
+	global_position = current_checkpoint
+	velocity = Vector2.ZERO
+	var shape = get_node("CollisionShape2D")
+	if shape:
+		shape.disabled = false  # ✅ re-enable collision
+
 # Do the physics
 func _physics_process(delta: float) -> void:
 	# Add the gravity
