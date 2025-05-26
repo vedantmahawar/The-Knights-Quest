@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://csgyc4nrbpycb"]
+
+[ext_resource type="Script" path="res://scripts/potion.gd" id="1_1xa5p"]
+[ext_resource type="Texture2D" uid="uid://hk68odt2moh3" path="res://assets/sprites/world_tileset.png" id="2_e2tds"]
+[ext_resource type="AudioStream" uid="uid://bqh388vlvl8t1" path="res://assets/sounds/coin.wav" id="3_o4836"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_474x1"]
+radius = 5.0
+
+[node name="Potion" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_1xa5p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_e2tds")
+region_enabled = true
+region_rect = Rect2(20, 130, 8, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_474x1")
+
+[node name="Pickup Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_o4836")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

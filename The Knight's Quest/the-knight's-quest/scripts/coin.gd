@@ -1,5 +1,6 @@
 extends Area2D
 
+# Variables
 @export var coin_id: String
 @onready var game_manager: Node = %GameManager
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -12,6 +13,7 @@ func _ready():
 # When coin is collected by player
 # Put them both on a different physics layer (#2) so this only triggers w/ the player
 func _on_body_entered(body: Node2D) -> void:
+	# Trigger coin_collect function for the game manager
 	game_manager.coin_collect()
 	Global.coins += 1
 	# Save this coin as collected
